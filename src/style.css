@@ -24,3 +24,10 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
+
+td {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+}
+
