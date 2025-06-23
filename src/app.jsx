@@ -12,3 +12,18 @@ const App = () => {
 
 const root = createRoot(document.getElementById("root"));
 root.render(<App />);
+
+//Add Rows to the Grid
+const AddRows = () => {
+  const [rowCount, setRowCount] = useState(0);
+  const handleClick = () => {
+    setRowCount(rowCount + 1);
+  };
+
+  return (
+    <div>
+      <h2>Rows: {rowCount}</h2>
+      <button onClick={handleClick}>Add Row</button>
+    </div>
+  );
+};
