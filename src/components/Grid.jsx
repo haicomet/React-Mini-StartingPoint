@@ -1,29 +1,38 @@
 import React, { useState } from "react";
 
 const Grid = () => {
-  const [rows, setRows] = useState(3); // 3 default
-  const [cols, setCols] = useState(3);
-  
-  const grid = Array.from({length: rows}).map((element) => Array.from({length: cols}));
+  const [grid, setGrid] = useState([
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ]);
 
-  return(
-    <table>
-      <tbody>
-        {grid.map((rows) => {return <tr>{rows.map((columns) => {return <td></td>})}</tr>})}
+  const removeColumn = () => {
+    setGrid((prevGrid) => prevGrid.map((row) => row.slice(0, -1)));
+  };
 
-      </tbody>
-    </table>
+  const removeRows = () => {
+    setGrid((prevGrid) => prevGrid.slice(0, -1));
+  };
+
+  return (
+    <div>
+      <h1>Grid</h1>
+      <table>
+        <tbody>
+          {grid.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((col, colIndex) => (
+                <td key={colIndex}>{col}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={removeColumn}>Remove Columns</button>
+      <button onClick={removeRows}>Remove Rows</button>
+    </div>
   );
 };
 
-const RemoveColumns = () => {
-  
-  return (
-    <div>
-      <h1> Remover </h1>
-      <button onClick={RemoveColumns}> Remove Columns </button>
-    </div>
-  );
-}
-
-export default Grid
+export default Grid;

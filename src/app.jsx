@@ -10,7 +10,6 @@ const App = () => {
     <div className="app">
       <h1 className="title">Hello World</h1>
        <Grid/>
-       <RemoveCols/>
     </div>
   );
 };
