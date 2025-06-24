@@ -25,6 +25,10 @@ const App = () => {
     }
   };
 
+  const resetColor = () => {
+    setGrid(grid.map((row) => row.map(() => "white")))
+  };
+
   return (
     <div className="app">
       <h1>Interactive Grid</h1>
@@ -32,6 +36,7 @@ const App = () => {
         <button onClick={addRow}>Add Row</button>
         <button onClick={addColumn}>Add Column</button>
         <button onClick={removeRow}>Remove Row</button>
+        <button onClick={resetColor}>Clear</button>
       </div>
       <Table grid={grid} />
     </div>
