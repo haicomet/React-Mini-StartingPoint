@@ -7,12 +7,28 @@ const Grid = () => {
     ["", "", ""],
   ]);
 
+  const addRows = () => {
+    //   let p = [...grid]
+    //   p.push(new Array(grid[0].length).fill(""))
+    //   setGrid(p)
+    setGrid([...grid, new Array(grid[0].length).fill("")]);
+  };
+
+  const addColumns = () => {
+    setGrid(grid.map((row) => [...row, ""]));
+  };
+
   const removeColumn = () => {
-    setGrid((prevGrid) => prevGrid.map((row) => row.slice(0, -1)));
+    setGrid(grid.map((row) => row.slice(0, -1)));
   };
 
   const removeRows = () => {
-    setGrid((prevGrid) => prevGrid.slice(0, -1));
+    setGrid(grid.slice(0, -1));
+  };
+
+  const ColorSelect = () => {
+
+
   };
 
   return (
@@ -29,8 +45,16 @@ const Grid = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={addColumns}> Add Columns</button>
+      <button onClick={addRows}> Add Rows</button>
       <button onClick={removeColumn}>Remove Columns</button>
       <button onClick={removeRows}>Remove Rows</button>
+      <select onChange={ColorSelect}>
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Purple">Purple</option>
+        <option value="Green">Green</option>
+      </select>
     </div>
   );
 };
