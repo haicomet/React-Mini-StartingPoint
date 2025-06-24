@@ -31,6 +31,10 @@ const Grid = () => {
 
   };
 
+  const resetColor = () => {
+    setGrid(grid.map((row) => row.map(() => "white")))
+  }
+
   return (
     <div>
       <h1>Grid</h1>
@@ -49,6 +53,7 @@ const Grid = () => {
       <button onClick={addRows}> Add Rows</button>
       <button onClick={removeColumn}>Remove Columns</button>
       <button onClick={removeRows}>Remove Rows</button>
+      <button onClick={resetColor}>Clear</button>
       <select onChange={ColorSelect}>
         <option value="Red">Red</option>
         <option value="Blue">Blue</option>
